@@ -219,6 +219,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
      *
      * @return int Size of set
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return count($this->_results);
@@ -247,6 +248,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
     /**
      * Sets pointer (current) to the next item of the set.
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         ++$this->_position;
@@ -267,6 +269,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
      *
      * @return bool True if object exists
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         return isset($this->_results[$this->key()]);
@@ -275,6 +278,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
     /**
      * Resets position to 0, restarts iterator.
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         $this->_position = 0;
@@ -289,6 +293,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
      *
      * @return bool true on success or false on failure
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->_results[$offset]);
@@ -324,6 +329,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
      *
      * @throws Exception\InvalidException
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (!($value instanceof Result)) {
@@ -344,6 +350,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
      *
      * @param int $offset
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->_results[$offset]);

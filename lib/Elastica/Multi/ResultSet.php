@@ -82,11 +82,13 @@ class ResultSet implements \Iterator, \ArrayAccess, \Countable
     /**
      * @return \Elastica\ResultSet
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         return $this->_resultSets[$this->key()];
     }
 
+    #[\ReturnTypeWillChange]
     public function next()
     {
         ++$this->_position;
@@ -103,11 +105,13 @@ class ResultSet implements \Iterator, \ArrayAccess, \Countable
     /**
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         return isset($this->_resultSets[$this->key()]);
     }
 
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         $this->_position = 0;
@@ -116,6 +120,7 @@ class ResultSet implements \Iterator, \ArrayAccess, \Countable
     /**
      * @return int
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return count($this->_resultSets);
@@ -126,6 +131,7 @@ class ResultSet implements \Iterator, \ArrayAccess, \Countable
      *
      * @return bool true on success or false on failure
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->_resultSets[$offset]);
@@ -145,6 +151,7 @@ class ResultSet implements \Iterator, \ArrayAccess, \Countable
      * @param mixed $offset
      * @param mixed $value
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -157,6 +164,7 @@ class ResultSet implements \Iterator, \ArrayAccess, \Countable
     /**
      * @param mixed $offset
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->_resultSets[$offset]);
